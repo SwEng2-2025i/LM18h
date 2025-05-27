@@ -14,10 +14,6 @@ curl -X POST http://localhost:5000/tasks \
   -d '{"title": "Aprender arquitectura hexagonal"}'
 ```
 
-### Code flow
-
-![image info](./diagram.png)
-
 ### 📄 List all tasks
 
 Returns a list of all created tasks.
@@ -25,3 +21,13 @@ Returns a list of all created tasks.
 ```bash
 curl http://localhost:5000/tasks
 ```
+
+### ✅ Mark task as done
+
+```bash
+curl -X PUT http://localhost:5000/tasks/<id>/done
+```
+
+### Code flow
+
+![image info](./diagram.png)
