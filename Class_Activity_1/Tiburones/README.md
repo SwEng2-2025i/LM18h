@@ -1,8 +1,12 @@
-# Task Manager – Hexagonal Architecture
+# Task Manager – Hexagonal Architecture - "Mark task as done" feature implemented
 
-This service allows you to create and list tasks using a hexagonal architecture (ports and adapters). Business logic is decoupled from infrastructure details, such as the web framework or storage.
+This is a new version of the task manager which includes the possibility to mark tasks as done, while preserving the Hexagonal Architecture.
 
-## 📋 Endpoints disponibles
+## Architecture Diagram
+
+![](Arquitectura.jpg)
+
+## 📋 Endpoints available
 
 ### ➕ Create a task
 
@@ -21,3 +25,15 @@ Returns a list of all created tasks.
 ```bash
 curl http://localhost:5000/tasks
 ```
+
+### ✔️ Mark task as done
+
+Mark a task as done by using its id.
+
+```bash
+curl -X PUT http://localhost:5000/tasks/<id>/done
+```
+
+## Flowchart of the "Mark task as done" feature
+
+![](Diagrama_Flujo.png)
