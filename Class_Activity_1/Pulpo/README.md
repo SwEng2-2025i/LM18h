@@ -1,4 +1,3 @@
-````markdown
 # Task Manager – Hexagonal Architecture
 
 This service allows you to create, list, and manage tasks using a hexagonal architecture (ports and adapters). Business logic is decoupled from infrastructure details, such as the web framework or storage.
@@ -13,7 +12,7 @@ Create a new task with a title.
 curl -X POST http://localhost:5000/tasks \
   -H "Content-Type: application/json" \
   -d '{"title": "Aprender arquitectura hexagonal"}'
-````
+
 
 ### 📄 List all tasks
 
