@@ -101,5 +101,5 @@ Pulpo/
 │
 ├── main.py                  # Entry point: initializes repository, use cases, and server
 │
-└── README.md                # Project documentation
+└── README.md                # Project documentation 
 
