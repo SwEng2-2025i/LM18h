@@ -1,0 +1,101 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Multichannel Notification System API",
+    "version": "1.0.0",
+    "description": "API for managing users and sending notifications through multiple channels"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Register a new user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Juan"
+                  },
+                  "preferred_channel": {
+                    "type": "string",
+                    "example": "email"
+                  },
+                  "available_channels": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": ["email", "sms"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "summary": "List all users",
+        "responses": {
+          "200": {
+            "description": "List of users"
+          }
+        }
+      }
+    },
+    "/notifications/send": {
+      "post": {
+        "summary": "Send a notification",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_name": {
+                    "type": "string",
+                    "example": "Juan"
+                  },
+                  "message": {
+                    "type": "string",
+                    "example": "Your appointment is tomorrow"
+                  },
+                  "priority": {
+                    "type": "string",
+                    "example": "high"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Notification sent"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  }
+}
