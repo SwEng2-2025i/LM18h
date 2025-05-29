@@ -134,47 +134,47 @@ This pattern is used to ensure there is a single instance of the logger during t
 ## Setup and testing instructions
 
 1. Clone the repository
-	```json
+	```
 	cd NotificationSystem
 	```
 
 2. Install dependecies:
-	```json
+	```
 	pip install -r requiriments.txt
 	```
 	#### Running application
  	Start the Flask server on port 4000:
-	```json
+	```
 	python app.py
 	```
 
 - The app will be available at:
-	```json
+	```
 	http://localhost:4000
 	```
 
 	#### Testing Endpoints with curl
 - Register a new user:
-	```json
+	```
 		curl -X POST http://localhost:4000/users \
 		-H "Content-Type: application/json" \
 		-d '{"name":"Pablo","preferred_channel":"email","available_channels":["email","SMS"]}
 
 	```
 - Get all users
-	```json
+	```
 	curl http://localhost:4000/users
 	```
 
 - Send notification
-	```json
+	```
 	curl -X POST http://localhost:4000/notification/send \
 	-H "Content-Type: application/json" \
 	-d '{"user_name":"Pablo","message":"Hello!","priority":1}'
 	```
 
 - Get logs
-	```json
+	```
 	curl http://localhost:4000/logs
 	```
 
