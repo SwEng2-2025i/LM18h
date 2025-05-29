@@ -1,0 +1,1 @@
+users = {} # Diccionario para almacenamiento en memoria de usuarios

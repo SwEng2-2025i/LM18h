@@ -1,0 +1,4 @@
+flask==2.0.3
+werkzeug==2.0.3
+flasgger==0.9.5
+flask-limiter==2.4.0
