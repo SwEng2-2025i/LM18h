@@ -1,4 +1,3 @@
-````markdown
 # 🧪 Multichannel Notification System (REST API)
 
 **Autor:** Santiago García Rodríguez
