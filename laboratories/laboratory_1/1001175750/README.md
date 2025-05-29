@@ -214,16 +214,16 @@ curl -X POST http://127.0.0.1:5000/notifications/send \
 
 #### Register user
 
-![POST_USER](images/RegisterUser.png)
+![POST_USER](notification_system/images/RegisterUser.png)
 
 #### List users
 
-![GET_USERS](images/ListUsers.png)
+![GET_USERS](notification_system/images/ListUsers.png)
 
 #### Send notification
 
-![POST_NOTIFICATIONS](images/SendNotifications.pngpng)
-![PRINT_NOTIFICATIONS](images/SendNotifications1.pngpng)
+![POST_NOTIFICATIONS](notification_system/images/SendNotifications.png)
+![PRINT_NOTIFICATIONS](notification_system/images/SendNotifications1.png)
 
 
 ---
