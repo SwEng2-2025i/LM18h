@@ -69,7 +69,7 @@ graph TD
 ```
 
 
-![Diagrama](images\dIAGRAMA.png)
+![Diagrama](images/dIAGRAMA.png)
 
 
 ```mermaid
@@ -138,7 +138,7 @@ classDiagram
     API --> Logger
 ```
 
-![Diagrama_UML](images\Captura_de_pantalla_2025-05-28_142017.png)
+![Diagrama_UML](images/Captura_de_pantalla_2025-05-28_142017.png)
 
 ---
 
@@ -214,15 +214,15 @@ curl -X POST http://localhost:5000/api/notifications/send \
 
 #### POST_USER
 
-![POST_USER](images\Captura_de_pantalla_2025-05-28_151358.png)
+![POST_USER](images/Captura_de_pantalla_2025-05-28_151358.png)
 
 #### POST_NOTIFICATIONS
 
-![POST_NOTIFICATIONS](images\Captura_de_pantalla_2025-05-28_151502.png)
+![POST_NOTIFICATIONS](images/Captura_de_pantalla_2025-05-28_151502.png)
 
 #### POST_NOTIFICATIONS
 
-![GET_USERS](images\Captura_de_pantalla_2025-05-28_151418.png)
+![GET_USERS](images/Captura_de_pantalla_2025-05-28_151418.png)
 
 ---
 
