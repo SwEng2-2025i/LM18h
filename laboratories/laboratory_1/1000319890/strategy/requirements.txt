@@ -1,0 +1,16 @@
+aniso8601==10.0.1
+blinker==1.9.0
+click==8.2.1
+colorama==0.4.6
+Flask==3.1.1
+Flask-RESTful==0.3.10
+flasgger==0.9.7.1
+greenlet==3.2.2
+itsdangerous==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+pytz==2025.2
+six==1.17.0
+SQLAlchemy==2.0.41
+typing_extensions==4.13.2
+Werkzeug==3.1.3
