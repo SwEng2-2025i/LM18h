@@ -135,7 +135,7 @@ This pattern is used to ensure there is a single instance of the logger during t
 
 1. Clone the repository
 	```
-	cd NotificationSystem
+	cd laboratories/laboratory_1/1021393341/NotificationSystem
 	```
 
 2. Install dependecies:
