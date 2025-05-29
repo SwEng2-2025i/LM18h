@@ -1,4 +1,3 @@
-````markdown
 # 🧪 Multichannel Notification System (REST API)
 
 **Autor:** Santiago García Rodríguez
@@ -107,10 +106,10 @@ classDiagram
 
 ## ⚙️ Instrucciones de ejecución
 
-1. Clona el repositorio y navega a tu carpeta:
+1. Clona el repositorio y navega a la carpeta:
 
    ```bash
-   cd laboratories/laboratory_1/<TU_DOCUMENTO>
+   cd Laboratory1/1000518892/app 
    ```
 
 2. Crea y activa un entorno virtual:
@@ -124,6 +123,7 @@ classDiagram
 3. Instala las dependencias:
 
    ```bash
+   cd ..
    pip install -r requirements.txt
    ```
 
