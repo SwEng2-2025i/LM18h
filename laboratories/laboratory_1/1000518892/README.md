@@ -109,7 +109,7 @@ classDiagram
 1. Clona el repositorio y navega a la carpeta:
 
    ```bash
-   cd Laboratory1/1000518892/app 
+   cd laboratories/laboratory_1/1000518892/app 
    ```
 
 2. Crea y activa un entorno virtual:
