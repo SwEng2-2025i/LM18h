@@ -74,7 +74,7 @@ Send a notification to a user:
 }
 ```
 
-## Classes diagram
+## Class/module diagram
 
 ```mermaid
 classDiagram
@@ -134,7 +134,7 @@ Each ChannelHandler uses the shared Logger to record attempts.
 
 ```bash
 git clone <https://github.com/SwEng2-2025i/LM18h.git>
-cd <1016942037>
+cd laboratories/laboratory_1/1016942037
 ```
 
 ### 2. Activate your virtual environment
