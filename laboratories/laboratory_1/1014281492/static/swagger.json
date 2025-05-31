@@ -1,0 +1,130 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Multichannel Notification System API",
+        "description": "A REST API for managing users and sending notifications through multiple channels",
+        "version": "1.0.0"
+    },
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/users": {
+            "post": {
+                "summary": "Register a new user",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "name",
+                                "preferred_channel",
+                                "available_channels"
+                            ],
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "User's name"
+                                },
+                                "preferred_channel": {
+                                    "type": "string",
+                                    "description": "User's preferred notification channel",
+                                    "enum": [
+                                        "email",
+                                        "sms",
+                                        "console"
+                                    ]
+                                },
+                                "available_channels": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "email",
+                                            "sms",
+                                            "console"
+                                        ]
+                                    },
+                                    "description": "List of available notification channels"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "User registered successfully"
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            },
+            "get": {
+                "summary": "List all users",
+                "responses": {
+                    "200": {
+                        "description": "List of users"
+                    }
+                }
+            }
+        },
+        "/notifications/send": {
+            "post": {
+                "summary": "Send a notification",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "user_name",
+                                "message"
+                            ],
+                            "properties": {
+                                "user_name": {
+                                    "type": "string",
+                                    "description": "Name of the user to notify"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "Notification message"
+                                },
+                                "priority": {
+                                    "type": "string",
+                                    "description": "Notification priority",
+                                    "enum": [
+                                        "low",
+                                        "normal",
+                                        "high"
+                                    ],
+                                    "default": "normal"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Notification sent successfully"
+                    },
+                    "400": {
+                        "description": "Invalid input or user not found"
+                    }
+                }
+            }
+        }
+    }
+}
