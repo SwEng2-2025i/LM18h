@@ -1,0 +1,127 @@
+# 🧪 Advanced Individual Lab: Multichannel Notification System
+
+## 📄 Autor
+
+**Gabriel Felipe Fonseca Guerrero**
+
+---
+
+## 🛍️ Descripción del Sistema
+
+Este proyecto es una API REST desarrollada con Flask que permite registrar usuarios con varios canales de comunicación (email, SMS, consola) y enviar notificaciones usando una cadena de responsabilidad. Si el canal preferido falla, se utilizan los canales alternativos, simulando fallos con `random.choice([True, False])`.
+
+---
+
+## 🔄 Patrones de diseño utilizados
+
+* **Chain of Responsibility**: para gestionar intentos de notificación fallidos a través de canales alternativos.
+* **Factory Pattern**: usado para crear instancias de los canales.
+* **Singleton**: utilizado opcionalmente para el logger.
+
+---
+
+## 📂 Estructura del Proyecto
+
+```
+multichannel_notification/
+├── app.py
+├── notification_handler.py
+├── models.py
+├── logger.py
+├── swagger_config.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 🚀 Instalación y Ejecución
+
+```bash
+# Crear entorno virtual (opcional)
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Ejecutar servidor
+python app.py
+```
+
+---
+
+## 🛍️ API Endpoints
+
+### `POST /users`
+
+Registra un nuevo usuario.
+
+```json
+{
+  "name": "Juan",
+  "preferred_channel": "email",
+  "available_channels": ["email", "sms"]
+}
+```
+
+### `GET /users`
+
+Lista todos los usuarios registrados.
+
+### `POST /notifications/send`
+
+Envía una notificación a un usuario. Usa Chain of Responsibility para fallback.
+
+```json
+{
+  "user_name": "Juan",
+  "message": "Your appointment is tomorrow.",
+  "priority": "high"
+}
+```
+
+---
+
+## 🔹 Ejemplos de curl
+
+```bash
+# Crear usuario
+curl -X POST http://localhost:5000/users \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Juan", "preferred_channel": "email", "available_channels": ["email", "sms"]}'
+
+# Enviar notificación
+curl -X POST http://localhost:5000/notifications/send \
+  -H "Content-Type: application/json" \
+  -d '{"user_name": "Juan", "message": "Tu cita es mañana", "priority": "high"}'
+```
+
+---
+
+## 📑 Swagger
+
+Disponible en:
+
+```
+http://localhost:5000/swagger
+```
+
+---
+
+## 📊 Diagrama de Módulos (texto)
+
+```
++-------------+     +----------------------+     +--------------------+
+|   app.py    | --> | notification_handler | --> | Logger (singleton) |
++-------------+     +----------------------+     +--------------------+
+      |                        ^
+      v                        |
+  models.py (users)       factory/channel classes
+```
+
+---
+
+## 📚 Comentarios
+
+El código está bien comentado, explicando cada clase, función y flujo de notificación, con enfoque en mantenibilidad y claridad.
