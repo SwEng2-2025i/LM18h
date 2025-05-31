@@ -1,0 +1,149 @@
+openapi: 3.0.0
+
+info:
+  title: Taller. Multichannel Notification API
+  version: "1.0"
+  description: Esta API permite registrar usuarios, consultar su información y enviar notificaciones multicanal utilizando los canales preferidos definidos por cada usuario. Implementa un sistema de envío con tolerancia a fallos, probando otros canales disponibles si el preferido falla. 
+
+paths:
+  /users:
+    post:
+      tags:
+        - Usuarios
+      summary: Registrar un nuevo usuario
+      # Define el cuerpo esperado en formato JSON para registrar un usuario nuevo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+      responses:
+        '201':
+          description: Usuario registrado correctamente
+          content:
+            application/json:
+              example:
+                message: User registered successfully
+        '400':
+          description: Faltan campos requeridos
+          content:
+            application/json:
+              example:
+                error: Missing required fields
+        '200':
+          description: El usuario ya existe
+          content:
+            application/json:
+              example:
+                message: User already exists
+
+    get:
+      tags:
+        - Usuarios
+      summary: Listar todos los usuarios
+       # Respuesta con lista de usuarios registrados
+      responses:
+        '200':
+          description: Lista de usuarios
+          content:
+            application/json:
+              example:
+                - name: Laura
+                  preferred_channel: email
+                  available_channels:
+                    - email
+                    - sms
+                    - console
+
+  /notifications/send:
+    post:
+      tags:
+        - Notificaciones
+      summary: Enviar una notificación
+      # Define el cuerpo esperado para enviar notificaciones a usuarios
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationInput'
+      responses:
+        '200':
+          description: Resultado del envío de notificación
+          content:
+            application/json:
+              examples:
+                success:
+                  summary: Notificación enviada exitosamente
+                  value:
+                    result: Notification sent successfully
+                    channel_used: email
+                    attempts:
+                      - channel: email
+                        sent: true
+                failure:
+                  summary: Fallo en todos los canales
+                  value:
+                    result: Notification failed on all channels
+                    attempts:
+                      - channel: email
+                        sent: false
+                      - channel: sms
+                        sent: false
+
+        '400':
+          description: Faltan campos requeridos
+          content:
+            application/json:
+              example:
+                error: Missing required fields
+
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              example:
+                error: User not found
+
+components:
+  schemas:
+    UserInput:
+    # Esquema para los datos de registro de usuario
+      type: object
+      required:
+        - name
+        - preferred_channel
+        - available_channels
+      properties:
+        name:
+          type: string
+          example: Juan
+        preferred_channel:
+          type: string
+          example: email
+        available_channels:
+          type: array
+          items:
+            type: string
+          example:
+            - email
+            - sms
+
+    NotificationInput:
+    # Esquema para los datos necesarios para enviar una notificación
+      type: object
+      required:
+        - user_name
+        - message
+        - priority
+      properties:
+        user_name:
+          type: string
+          example: Juan
+        message:
+          type: string
+          example: Your appointment is tomorrow.
+        priority:
+          type: string
+          example: high
