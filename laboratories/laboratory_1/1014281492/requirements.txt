@@ -1,0 +1,4 @@
+Flask==3.0.2
+flask-swagger-ui==4.11.1
+python-dotenv==1.0.1
+pytest==8.0.2 
