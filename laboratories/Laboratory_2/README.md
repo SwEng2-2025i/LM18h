@@ -1,4 +1,4 @@
-# Class Activity 2 Instructions
+# Lab 2 Instructions
 
 Based on the integration testing example reviewed in [example repository](https://github.com/SwEng2-2025i/SwEng2_2025i_Examples/tree/main/Example%205%20-%20Integration%20Test), extend it by implementing the following features:
 
