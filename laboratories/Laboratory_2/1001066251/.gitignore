@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 
 # Bases de datos de SQLite
-# Se generan al correr los servicios y no deben estar en el repositorio
+# Se generan al correr los servicios
 *.db
 *.db-journal
 
