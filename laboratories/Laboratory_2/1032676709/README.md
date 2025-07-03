@@ -68,6 +68,7 @@ def delete_task(task_id):
 
 ## 📁 Estructura del repositorio
 
+```
 Laboratory_2/
 ├── 1032676709/
 │   ├── Front-End/
@@ -84,6 +85,7 @@ Laboratory_2/
 │   │   └── generate_report.py
 │   ├──README.md
 │   └──requirements.txt
+```
 
 ## ✅ Estado
 
