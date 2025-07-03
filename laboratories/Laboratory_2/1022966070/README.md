@@ -31,12 +31,12 @@ Las pruebas ejecutadas cubren:
 
 Frontend Test Report
 
-✅ Frontend opened successfully
-✅ User created with ID: 23
-✅ Task created with ID: 47
-✅ Tasks verified successfully
-✅ Data cleanup completed successfully
-✅ Test passed
+- ✅ Frontend opened successfully
+- ✅ User created with ID: 23
+- ✅ Task created with ID: 47
+- ✅ Tasks verified successfully
+- ✅ Data cleanup completed successfully
+- ✅ Test passed
 
 
 
@@ -86,12 +86,12 @@ pip install flask selenium fpdf requests
 
 
 # Backend (usuarios y tareas)
-cd Backend
-python app.py
+cd Task_Service
+python main.py
 
 # Frontend (interfaz web)
-cd ../Frontend
-python frontend.py
+cd ../Front-End
+python main.py
 
 
 # Desde Test/
