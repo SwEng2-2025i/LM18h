@@ -1,0 +1,5 @@
+flask_sqlalchemy
+flask_cors
+fpdf
+requests
+selenium
