@@ -16,13 +16,13 @@ jobs:
       - name: Validate push deadline
         run: |
 
-          deadline_date="2025-05-30"
+          deadline_date="2025-07-05"
 
           deadline_time="23:59"
 
           if [[ "$current_date" > "$deadline_date" ]] || 
              ([[ "$current_date" == "$deadline_date" ]] && [[ "$current_time" > "$deadline_time" ]]); then
-            echo "❌ Push bloqueado. La fecha límite fue el 30 de mayo de 2025 a las 23:59 (hora Bogotá)."
+            echo "❌ Push bloqueado. La fecha límite fue el 05 de julio de 2025 a las 23:59 (hora Bogotá)."
             exit 1
           fi
         env:
