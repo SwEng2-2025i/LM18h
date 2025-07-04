@@ -1,0 +1,6 @@
+flask==2.0.1
+flask_sqlalchemy
+flask_cors
+requests==2.26.0
+selenium==4.1.0
+reportlab==3.6.8
