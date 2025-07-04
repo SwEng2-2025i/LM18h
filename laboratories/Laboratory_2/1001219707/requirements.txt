@@ -1,0 +1,6 @@
+flask
+flask_sqlalchemy
+flask_cors
+requests
+selenium          # para el test Front-End con Chrome
+fpdf==1.7.2       # para generar los reportes PDF
