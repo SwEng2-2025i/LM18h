@@ -1,0 +1,29 @@
+# Archivos de Bytecode y caché de Python
+__pycache__/
+*.py[cod]
+
+# Bases de datos de SQLite
+# Se generan al correr los servicios
+*.db
+*.db-journal
+
+# Reportes de prueba generados
+# El laboratorio pide generar PDFs, que son un resultado, no parte del código
+*.pdf
+
+# Carpetas de entornos virtuales de Python
+venv/
+.venv/
+env/
+.env/
+
+# Archivos de configuración de IDEs y editores
+.vscode/
+.idea/
+
+# Archivos de log
+*.log
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
