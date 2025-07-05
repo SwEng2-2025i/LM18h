@@ -128,20 +128,46 @@ function crearUsuario() {
 
 function crearTarea() {
   const title = document.getElementById('task').value;
-  const user_id = document.getElementById('userid').value;
+  const user_id = parseInt(document.getElementById('userid').value);  // Convert to number
+  
+  // Basic validation
+  if (!title || !user_id || isNaN(user_id)) {
+    const result = document.getElementById('task-result');
+    result.textContent = '❌ Error: Datos inválidos';
+    result.className = 'error';
+    return;
+  }
+
   fetch('http://localhost:5002/tasks', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({title, user_id})
-  }).then(r => r.json()).then(data => {
+  })
+  .then(response => {
+    if (!response.ok) {
+      // Try to parse error response
+      return response.json().then(err => {
+        throw new Error(err.error || 'Unknown error');
+      }).catch(() => {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      });
+    }
+    return response.json();
+  })
+  .then(data => {
     const result = document.getElementById('task-result');
     if (data.id) {
       result.textContent = `✅ Tarea creada con ID ${data.id}`;
       result.className = 'result';
     } else {
-      result.textContent = `❌ Error: ${data.error}`;
+      result.textContent = `❌ Error: ${data.error || 'Unknown error'}`;
       result.className = 'error';
     }
+  })
+  .catch(error => {
+    const result = document.getElementById('task-result');
+    result.textContent = `❌ Error: ${error.message}`;
+    result.className = 'error';
   });
 }
 
