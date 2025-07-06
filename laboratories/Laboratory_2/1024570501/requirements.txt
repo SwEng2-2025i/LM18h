@@ -1,3 +1,7 @@
 flask
 flask_sqlalchemy
 requests
+flask_cors
+selenium
+fpdf
+webdriver-manager
