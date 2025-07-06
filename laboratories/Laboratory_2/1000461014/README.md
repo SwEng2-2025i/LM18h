@@ -18,7 +18,7 @@ Data cleanup was implemented at the end of both backend and frontend integration
 - Any user or task created during testing is deleted afterward.
 - The system verifies that the deletion was successful.
 
-**Backend verification** was performed using direct calls.  
+**Backend verification** was performed using direct API requests.  
 **Frontend verification** included both:
 
 - **UI-based validation** with Selenium (refreshing the task list and submitting forms).
