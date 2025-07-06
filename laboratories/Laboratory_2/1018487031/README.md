@@ -18,6 +18,7 @@ IntegrationTest/
 │   └── Test/
 │       ├── BackEnd-Test.py      # Pruebas de integración del backend
 │       └── FrontEnd-Test.py     # Pruebas E2E del frontend
+│   ├── requirements.txt         # Archivo requirements.txt para instalar las librerias necesarias
 ├── reports/                     # Informes PDF generados (se crean automáticamente)
 └── README.md                    # Este archivo
 ```
