@@ -33,10 +33,21 @@ def create_task():
     db.session.commit()
     return jsonify({'id': task.id, 'title': task.title, 'user_id': task.user_id}), 201
 
+
 @service_b.route('/tasks', methods=['GET'])
 def get_tasks():
     tasks = Task.query.all()
     return jsonify([{'id': t.id, 'title': t.title, 'user_id': t.user_id} for t in tasks])
+
+# DELETE endpoint for task
+@service_b.route('/tasks/<int:task_id>', methods=['DELETE'])
+def delete_task(task_id):
+    task = Task.query.get(task_id)
+    if not task:
+        return jsonify({'error': 'Task not found'}), 404
+    db.session.delete(task)
+    db.session.commit()
+    return jsonify({'message': f'Task {task_id} deleted'}), 200
 
 if __name__ == '__main__':
     with service_b.app_context():
